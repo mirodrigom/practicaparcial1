@@ -15,7 +15,7 @@ public class Controlador
 
     public Controlador()
     {
-
+        this.personas = new ArrayList<Modelo>();
     }
 
     public Vista getVista()

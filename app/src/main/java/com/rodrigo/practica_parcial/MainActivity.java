@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback
         rv.setAdapter(miAdaptador);
         rv.setLayoutManager(new LinearLayoutManager(this));
         Handler miHandler = new Handler(this);
-        MiHilo hiloUno = new MiHilo(miHandler,"url","json","get");
+        MiHilo hiloUno = new MiHilo(miHandler,"http://192.168.1.117/labo5/file.json","json","get");
         hiloUno.start();
     }
 
@@ -42,7 +43,11 @@ public class MainActivity extends AppCompatActivity implements Handler.Callback
         switch (msg.arg1)
         {
             case 0:
-                controlador.setPersonas((List<Modelo>) msg.obj);
+                this.controlador.setPersonas((List<Modelo>) msg.obj);
+                List<Modelo> personas = this.controlador.getPersonas();
+
+                Log.wtf("algo",personas.get(1).getApellido());
+                //Log.wtf("personas", (Throwable) this.controlador.getPersonas());
                 this.miAdaptador.notifyDataSetChanged();
                 break;
         }

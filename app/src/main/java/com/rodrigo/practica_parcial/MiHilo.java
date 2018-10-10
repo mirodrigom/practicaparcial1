@@ -37,6 +37,7 @@ public class MiHilo extends Thread
                     {
                         msg.arg1 = 1;
                         msg.obj = new ApiJSON(new String(cm.getString(this.URL)));
+
                     }else if("post".equalsIgnoreCase(this.type))
                     {
                         msg.arg1 = 2;
