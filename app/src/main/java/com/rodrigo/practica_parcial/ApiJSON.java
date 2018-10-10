@@ -16,7 +16,6 @@ public class ApiJSON
 
     public ApiJSON(String json)
     {
-        //Log.wtf("JSON:", json);
         try
         {
             this.json = new JSONArray(json);
@@ -38,11 +37,11 @@ public class ApiJSON
                 jsonData = this.json.getJSONObject(i);
                 persona.setNombre(jsonData.getString("first_name"));
                 persona.setApellido(jsonData.getString("last_name"));
+                persona.setTelefono(jsonData.getString("phone"));
             } catch (JSONException e)
             {
                 e.printStackTrace();
             }
-            Log.wtf("json",persona.getApellido());
             personas.add(persona);
         }
         return personas;

@@ -1,5 +1,7 @@
 package com.rodrigo.practica_parcial;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,7 +42,8 @@ public class Controlador
 
     public void setPersonas(List<Modelo> lista)
     {
-            this.personas = lista;
+        Log.wtf("entro","llego la lista");
+        this.personas = lista;
     }
 
     public void setPersonas()
@@ -73,6 +76,8 @@ public class Controlador
         lista.add(p11);
         lista.add(p12);
         lista.add(p13);
+
+        this.personas = lista;
     }
 
     public List<Modelo> getPersonas()

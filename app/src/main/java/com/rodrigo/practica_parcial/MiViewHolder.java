@@ -2,6 +2,7 @@ package com.rodrigo.practica_parcial;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -28,6 +29,7 @@ public class MiViewHolder extends RecyclerView.ViewHolder implements View.OnClic
     @Override
     public void onClick(View v)
     {
+        Log.wtf("tocado", String.valueOf(this.position));
         //haceralgo(this.position)
     }
 }

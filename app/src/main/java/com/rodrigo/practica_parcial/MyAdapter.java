@@ -2,6 +2,7 @@ package com.rodrigo.practica_parcial;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,12 @@ public class MyAdapter extends RecyclerView.Adapter <MiViewHolder>
     @Override
     public int getItemCount()
     {
+        Log.wtf("cuenta", String.valueOf(this.modelo.size()));
         return this.modelo.size();
+    }
+
+    public void givemelist(List<Modelo> model)
+    {
+        this.modelo = model;
     }
 }

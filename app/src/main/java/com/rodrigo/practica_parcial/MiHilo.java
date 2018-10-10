@@ -4,6 +4,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import java.util.List;
+import java.util.ResourceBundle;
+
 public class MiHilo extends Thread
 {
     private String URL;
@@ -22,7 +25,6 @@ public class MiHilo extends Thread
     @Override
     public void run()
     {
-        super.run();
 
         Message msg = new Message();
         if(this.isInterrupted())
@@ -36,8 +38,8 @@ public class MiHilo extends Thread
                     if("get".equalsIgnoreCase(this.type))
                     {
                         msg.arg1 = 1;
-                        msg.obj = new ApiJSON(new String(cm.getString(this.URL)));
-
+                        ApiJSON apijson = new ApiJSON(new String(cm.getString(this.URL)));
+                        msg.obj = apijson.getJSON();
                     }else if("post".equalsIgnoreCase(this.type))
                     {
                         msg.arg1 = 2;
@@ -54,5 +56,6 @@ public class MiHilo extends Thread
                     break;
             }
         }
+        this.miHandler.sendMessage(msg);
     }
 }
